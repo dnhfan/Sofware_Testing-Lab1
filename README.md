@@ -56,12 +56,16 @@ java -cp out com.example.Main
 
 ## JUnit Tests
 
-Two tests in `NumberAnalyzerTest`:
+4 tests in `NumberAnalyzerTest`:
 
-- `shouldHandlePositiveNumbers()` → input `{1,2,3}`, expects `6` → exercises the `if` branch
-- `shouldHandleNegativeNumbers()` → input `{-1,-2,-3}`, expects `6` → exercises the `else` branch
+| Test | Loop | if | else |
+|------|------|----|------|
+| `shouldHandleEmptyArray()` | 0 times | ✗ | ✗ |
+| `shouldHandlePositiveNumbers()` | >0 | ✓ | ✗ |
+| `shouldHandleNegativeNumbers()` | >0 | ✗ | ✓ |
+| `shouldHandleMixedNumbers()` | >1 | ✓ | ✓ |
 
-Together both branches are covered (statement coverage).
+This gives **path coverage** for representative cases: empty loop, loop with only positive, only negative, and mixed numbers.
 
 ### Run Tests
 

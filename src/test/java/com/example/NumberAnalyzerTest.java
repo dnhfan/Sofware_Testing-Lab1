@@ -22,4 +22,22 @@ class NumberAnalyzerTest {
 
         assertEquals(6, result);
     }
+
+    @Test
+    void shouldHandleEmptyArray() {
+        int[] numbers = {};
+
+        int result = NumberAnalyzer.analyze(numbers);
+
+        assertEquals(0, result);
+    }
+
+    @Test
+    void shouldHandleMixedNumbers() {
+        int[] numbers = {5, -2};
+
+        int result = NumberAnalyzer.analyze(numbers);
+
+        assertEquals(7, result);
+    }
 }
