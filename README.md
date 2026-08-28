@@ -7,9 +7,14 @@ Java program with a loop and branching logic for testing purposes.
 ## Project Structure
 
 ```
-src/main/java/com/example/
-├── NumberAnalyzer.java   # Core logic
-└── Main.java             # Entry point
+src/
+├── main/java/com/example/
+│   ├── NumberAnalyzer.java   # Core logic
+│   └── Main.java             # Entry point
+└── test/java/com/example/
+    └── NumberAnalyzerTest.java  # JUnit tests
+lib/
+└── junit-platform-console-standalone-1.10.2.jar
 ```
 
 ## How It Works
@@ -48,3 +53,27 @@ java -cp out com.example.Main
 | `{1, 2, 3}` | 6 | All positive |
 | `{-1, -2, -3}` | 6 | All negative |
 | `{0}` | 0 | Zero value |
+
+## JUnit Tests
+
+Two tests in `NumberAnalyzerTest`:
+
+- `shouldHandlePositiveNumbers()` → input `{1,2,3}`, expects `6` → exercises the `if` branch
+- `shouldHandleNegativeNumbers()` → input `{-1,-2,-3}`, expects `6` → exercises the `else` branch
+
+Together both branches are covered (statement coverage).
+
+### Run Tests
+
+```bash
+# Compile
+javac -cp lib/junit-platform-console-standalone-1.10.2.jar \
+  -d out \
+  src/main/java/com/example/NumberAnalyzer.java \
+  src/test/java/com/example/NumberAnalyzerTest.java
+
+# Execute
+java -jar lib/junit-platform-console-standalone-1.10.2.jar \
+  -cp out \
+  --scan-classpath
+```
