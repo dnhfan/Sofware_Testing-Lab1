@@ -1,0 +1,12 @@
+# Output directories (IntelliJ IDEA / Java compiler)
+out/
+
+# Maven build output
+target/
+
+# Gradle build output
+build/
+.gradle/
+
+# Compiled class files
+*.class
